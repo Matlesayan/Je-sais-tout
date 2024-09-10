@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moi le Site je sais tout</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FF6F61, #FFEB3B);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #FF6F61;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(45deg, #FF6F61, #FFEB3B);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #FF6F61;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #FFCA28;
+            transform: scale(1.1);
+        }
+
+        section {
+            display: none;
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #FF6F61;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #FF6F61;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .project-list,
+        .book-list,
+        .travel-list {
+            text-align: left;
+            padding: 0;
+            list-style: none;
+        }
+
+        .project-list li,
+        .book-list li,
+        .travel-list li {
+            background-color: #FFEB3B;
+            border: 2px solid #FF6F61;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            margin-top: 40px;
+            font-size: 0.9em;
+            border-top: 4px solid #FF6F61;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .book-details {
+            display: none;
+            background-color: #FFF;
+            border: 2px solid #FF6F61;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .expand-link {
+            cursor: pointer;
+            color: #FF6F61;
+            text-decoration: none;
+        }
+
+        .expand-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            display: block;
+            margin: 10px 0;
+            color: #FF6F61;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .travel-list a {
+            color: #FF6F61;
+            text-decoration: none;
+        }
+
+        .travel-list a:hover {
+            text-decoration: underline;
+        }
+
+        .project-list a {
+            color: #FF6F61;
+            text-decoration: none;
+        }
+
+        .project-list a:hover {
+            text-decoration: underline;
+        }
+
+        .math-formulas {
+            text-align: left;
+            padding: 0;
+            list-style: none;
+        }
+
+        .math-formulas li {
+            background-color: #FFEB3B;
+            border: 2px solid #FF6F61;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+
+        .math-formulas li strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .math-formulas li p {
+            margin: 0;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.toggle('active', section.id === sectionId);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.expand-link').forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    const details = document.querySelector(link.getAttribute('href'));
+                    details.style.display = details.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Moi le Site je sais tout</h1>
+        <p>Bienvenue sur mon site personnel où je partage tout ce que je sais !</p>
+    </header>
+
+    <nav>
+        <a href="#jeux-video" onclick="showSection('jeux-video')">Jeux Vidéo 🎮</a>
+        <a href="#projets-scolaires" onclick="showSection('projets-scolaires')">Projets Scolaires 📚</a>
+        <a href="#resumes-livres" onclick="showSection('resumes-livres')">Résumés de Livres 📖</a>
+        <a href="#voyages" onclick="showSection('voyages')">Voyages 🌍</a>
+        <a href="#reseaux" onclick="showSection('reseaux')">Réseaux 🌐</a>
+    </nav>
+
+    <section id="jeux-video">
+        <h2>Jeux Vidéo 🎮</h2>
+        <p>Plongez dans l'univers des jeux vidéo, des critiques, des guides et plus encore.</p>
+        <ul class="project-list">
+            <li>
+                <strong>Jeu 1: The Last of Us</strong> - Un jeu d'action-aventure avec une histoire captivante dans un monde post-apocalyptique.
+                <br><a href="https://www.playstation.com/en-us/games/the-last-of-us-part-i/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 2: God of War</strong> - Un jeu d'action et de mythologie avec des combats intenses et une narration épique.
+                <br><a href="https://www.playstation.com/en-us/games/god-of-war/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 3: Minecraft</strong> - Un jeu de construction et d'aventure dans un monde ouvert avec des possibilités infinies.
+                <br><a href="https://www.minecraft.net/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 4: Red Dead Redemption 2</strong> - Un jeu d'action-aventure se déroulant dans l'Ouest américain avec une histoire immersive.
+                <br><a href="https://www.rockstargames.com/reddeadredemption2" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 5: Among Us</strong> - Un jeu de déduction sociale où les joueurs doivent découvrir les imposteurs parmi eux.
+                <br><a href="https://www.innersloth.com/gameAmongUs.php" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 6: The Witcher 3: Wild Hunt</strong> - Un jeu de rôle en monde ouvert avec une histoire riche et des quêtes passionnantes.
+                <br><a href="https://www.thewitcher.com/en/witcher3" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 7: Fortnite</strong> - Un jeu de bataille royale avec un style graphique unique et des événements réguliers.
+                <br><a href="https://www.epicgames.com/fortnite" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 8: Call of Duty: Warzone</strong> - Un jeu de bataille royale avec des graphismes réalistes et un gameplay intense.
+                <br><a href="https://www.callofduty.com/warzone" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 9: Apex Legends</strong> - Un autre jeu de bataille royale avec des personnages uniques et un gameplay stratégique.
+                <br><a href="https://www.ea.com/games/apex-legends" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 10: Valorant</strong> - Un jeu de tir tactique avec des compétences uniques pour chaque personnage.
+                <br><a href="https://playvalorant.com/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 11: Hades</strong> - Un jeu d'action-RPG avec une histoire captivante et un gameplay roguelike.
+                <br><a href="https://www.supergiantgames.com/games/hades/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 12: Celeste</strong> - Un jeu de plateforme avec une histoire émouvante et des défis de gameplay.
+                <br><a href="https://maddythorne.com/celeste" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 13: Stardew Valley</strong> - Un jeu de simulation de ferme avec des éléments de RPG et de gestion.
+                <br><a href="https://www.stardewvalley.net/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 14: Dead Cells</strong> - Un jeu d'action-platformer roguelike avec un combat fluide et des environnements générés de manière procédurale.
+                <br><a href="https://dead-cells.com/" target="_blank">Télécharger</a>
+            </li>
+            <li>
+                <strong>Jeu 15: Hollow Knight</strong> - Un jeu d'action-aventure en 2D avec une exploration profonde et une atmosphère captivante.
+                <br><a href="https://hollowknight.com/" target="_blank">Télécharger</a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="projets-scolaires">
+        <h2>Projets Scolaires 📚</h2>
+        <ul class="project-list">
+            <li><strong>Projet 1:</strong> Étude sur les tendances de l'IA dans les écoles.</li>
+            <li><strong>Projet 2:</strong> Analyse des effets des jeux vidéo sur les performances académiques.</li>
+            <li><strong>Projet 3:</strong> Développement d'un outil éducatif interactif pour l'apprentissage des langues.</li>
+        </ul>
+
+        <h3>Formules Mathématiques</h3>
+        <ul class="math-formulas">
+            <li>
+                <strong>5e - Périmètre d'un rectangle</strong>
+                <p>Formule : P = 2(l + L)</p>
+                <p>Où l est la longueur et L est la largeur du rectangle.</p>
+            </li>
+            <li>
+                <strong>5e - Aire d'un triangle</strong>
+                <p>Formule : A = (b × h) / 2</p>
+                <p>Où b est la base et h est la hauteur du triangle.</p>
+            </li>
+            <li>
+                <strong>4e - Théorème de Pythagore</strong>
+                <p>Formule : a² + b² = c²</p>
+                <p>Où a et b sont les longueurs des côtés adjacents d'un triangle rectangle, et c est l'hypoténuse.</p>
+            </li>
+            <li>
+                <strong>4e - Aire d'un cercle</strong>
+                <p>Formule : A = π × r²</p>
+                <p>Où r est le rayon du cercle.</p>
+            </li>
+            <li>
+                <strong>3e - Volume d'un prisme rectangulaire</strong>
+                <p>Formule : V = l × L × h</p>
+                <p>Où l est la longueur, L est la largeur et h est la hauteur du prisme.</p>
+            </li>
+            <li>
+                <strong>3e - Volume d'une pyramide</strong>
+                <p>Formule : V = (B × h) / 3</p>
+                <p>Où B est l'aire de la base et h est la hauteur de la pyramide.</p>
+            </li>
+            <li>
+                <strong>2nde - Fonction affine</strong>
+                <p>Formule : f(x) = ax + b</p>
+                <p>Où a est la pente et b est l'ordonnée à l'origine.</p>
+            </li>
+            <li>
+                <strong>2nde - Résolution d'une équation du second degré</strong>
+                <p>Formule : x = (-b ± √(b² - 4ac)) / 2a</p>
+                <p>Où ax² + bx + c = 0 est l'équation du second degré.</p>
+            </li>
+            <li>
+                <strong>1ère - Fonction exponentielle</strong>
+                <p>Formule : f(x) = a × e^(bx)</p>
+                <p>Où a et b sont des constantes et e est la base du logarithme naturel.</p>
+            </li>
+            <li>
+                <strong>1ère - Théorème de Thalès</strong>
+                <p>Formule : (AB / CD) = (AE / CF)</p>
+                <p>Où AB et CD sont les longueurs de deux segments parallèles coupés par une transversale, et AE et CF sont les longueurs des segments correspondants.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="resumes-livres">
+        <h2>Résumés de Livres 📖</h2>
+        <ul class="book-list">
+            <li>
+                <a href="#le-petit-prince-details" class="expand-link">Le Petit Prince d'Antoine de Saint-Exupéry</a>
+                <div id="le-petit-prince-details" class="book-details">
+                    <p><strong>Résumé détaillé :</strong> *Le Petit Prince* est une œuvre poétique et philosophique écrite par Antoine de Saint-Exupéry. Le livre raconte l'histoire d'un jeune prince qui voyage de planète en planète, rencontrant des personnages symboliques et réfléchissant sur la nature humaine. À travers ses aventures, le livre aborde des thèmes tels que l'amour, l'amitié, la solitude, et la quête de sens.</p>
+                    <p><strong>Thèmes principaux :</strong> L'amitié, l'amour, la solitude, la quête de sens.</p>
+                    <p><strong>Citations :</strong> "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."</p>
+                </div>
+            </li>
+            <li>
+                <a href="#1984-details" class="expand-link">1984 de George Orwell</a>
+                <div id="1984-details" class="book-details">
+                    <p><strong>Résumé détaillé :</strong> *1984* est un roman dystopique publié en 1949 par George Orwell. Il dépeint une société totalitaire surveillée par le Parti et son leader omniprésent, Big Brother. L'histoire suit Winston Smith, un employé du Parti qui commence à remettre en question le régime. À travers ses expériences, Orwell explore les dangers du totalitarisme, la manipulation de la vérité, et la perte de la liberté individuelle.</p>
+                    <p><strong>Thèmes principaux :</strong> Totalitarisme, surveillance, manipulation de la vérité, liberté individuelle.</p>
+                    <p><strong>Citations :</strong> "La guerre, c'est la paix. La liberté, c'est l'esclavage. L'ignorance, c'est la force."</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="voyages">
+        <h2>Voyages 🌍</h2>
+        <ul class="travel-list">
+            <li><strong>Voyage 1: Japon</strong> - Une exploration culturelle et gastronomique à travers Tokyo, Kyoto, et Osaka.</li>
+            <li><strong>Voyage 2: Italie</strong> - Découverte de Rome, Florence et Venise, avec une immersion dans l'histoire et la cuisine italienne.</li>
+            <li><strong>Voyage 3: Islande</strong> - Une aventure au cœur des paysages volcaniques, des glaciers, et des aurores boréales.</li>
+            <li><strong>Voyage 4: Australie</strong> - Visite de Sydney, Melbourne, et des Grands Fonds Marins de la Grande Barrière de Corail.</li>
+            <li><strong>Voyage 5: Grèce</strong> - Exploration des ruines antiques d'Athènes et des îles grecques comme Santorin et Mykonos.</li>
+            <li><strong>Voyage 6: Égypte</strong> - Plongée dans l'histoire ancienne avec les pyramides de Gizeh, le Sphinx, et la Vallée des Rois.</li>
+            <li><strong>Voyage 7: Nouvelle-Zélande</strong> - Découverte des paysages époustouflants et des activités en plein air à travers l'île du Nord et l'île du Sud.</li>
+            <li><strong>Voyage 8: Thaïlande</strong> - Immersion dans la culture locale avec des visites à Bangkok, Chiang Mai, et les plages de Phuket.</li>
+            <li><strong>Voyage 9: Pérou</strong> - Randonnée sur le chemin de l'Inca jusqu'au Machu Picchu et exploration de la culture andine.</li>
+            <li><strong>Voyage 10: Maroc</strong> - Découverte des souks de Marrakech, des dunes du Sahara, et des montagnes de l'Atlas.</li>
+        </ul>
+        <h3>Sites pour Trouver des Billets d'Avion Moins Cher</h3>
+        <ul class="travel-list">
+            <li><a href="https://www.skyscanner.net" target="_blank">Skyscanner</a> - Comparez les prix des billets d'avion, des hôtels et des locations de voitures.</li>
+            <li><a href="https://www.kayak.com" target="_blank">Kayak</a> - Trouvez des offres de vols, d'hôtels et de voitures de location.</li>
+            <li><a href="https://www.google.com/flights" target="_blank">Google Flights</a> - Outil de recherche de vols avec une interface simple et des alertes de prix.</li>
+            <li><a href="https://www.expedia.com" target="_blank">Expedia</a> - Réservez des vols, des hôtels et des locations de voitures avec des réductions.</li>
+            <li><a href="https://www.momondo.com" target="_blank">Momondo</a> - Un comparateur de prix de vols avec des conseils pour obtenir les meilleures offres.</li>
+            <li><a href="https://www.travelocity.com" target="_blank">Travelocity</a> - Comparez les prix des vols, réservez des hôtels et plus encore.</li>
+            <li><a href="https://www.orbitz.com" target="_blank">Orbitz</a> - Trouvez des billets d'avion, des hôtels et des forfaits vacances.</li>
+            <li><a href="https://www.cheapoair.com" target="_blank">CheapOair</a> - Des offres de vols à bas prix et des réductions exclusives.</li>
+            <li><a href="https://www.priceline.com" target="_blank">Priceline</a> - Réservez des vols, des hôtels et des voitures avec des réductions importantes.</li>
+            <li><a href="https://www.justfly.com" target="_blank">JustFly</a> - Des offres de vols pas chers et des promotions spéciales.</li>
+        </ul>
+    </section>
+
+    <section id="reseaux">
+        <h2>Réseaux 🌐</h2>
+        <ul class="social-links">
+            <li><a href="https://www.facebook.com/matthisdartenuc" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/matthisdartenuc" target="_blank">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/matthisdartenuc/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/matthisdartenuc" target="_blank">Instagram</a></li>
+            <li><a href="https://github.com/matthisdartenuc" target="_blank">GitHub</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Moi le Site je sais tout. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
